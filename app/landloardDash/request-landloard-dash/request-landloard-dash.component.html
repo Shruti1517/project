@@ -1,0 +1,56 @@
+<div class="wrapper ">
+  <app-land-sidebar></app-land-sidebar>
+  <!--  Mid section  -->
+  <div class="main-panel">
+    <!-- Navbar -->
+    <app-land-nav></app-land-nav>
+    <!-- End Navbar -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="RequestPage">
+          <div class="heading">
+            <h3>Request Details</h3>
+          </div>
+          <div class="tenantListBtn fullwidth paddB30">
+            <div class="searchDiv pull-left">
+              <div class="form-group">
+                <label class="bmd-label-floating">Filters</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="tableDIv">
+            <div class="card">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class=" text-primary">
+                      <tr>
+                        <th>Property Name</th>
+                        <th>Tenant UserName</th>
+                        <th>Unit Type</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let items of data | paginate: config">
+                        <td>{{items.propertyName}}</td>
+                        <td>{{items.userName}}</td>
+                        <td>{{items.unitType}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+    </div>
+    <footer class="footer">
+      <div class="container-fluid">
+      </div>
+    </footer>
+  </div>
+  <!-- min end section -->
+</div>
